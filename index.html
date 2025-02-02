@@ -92,10 +92,10 @@
                 if (doc.exists) {
                     let QrCode = doc.data();
                     if (QrCode.scanned === false) {
-                        alert("QR Code is Valid!");
+                        alert("OK !!!...QR Code is Valid!");
                         db.collection("QrCode").doc(barcode).update({ scanned: true });
                     } else {
-                        alert("QR Code already scanned!");
+                        alert("Fail !!!...QR Code already scanned!");
                     }
 
                     // Display values in table
@@ -103,7 +103,7 @@
                     document.getElementById("tpNoDisplay").textContent = QrCode.TpNumber;
                     document.getElementById("scannedDisplay").textContent = QrCode.scanned ? "Yes" : "No";
                 } else {
-                    alert("QR Code Not Found in Database!");
+                    alert("Fail !!!...QR Code Not Found in Database!");
                     resetFields();
                 }
                 enterPressCount = 1; // Reset counter after first press
