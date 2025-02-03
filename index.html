@@ -43,6 +43,7 @@
     <div id="reader" style="width: 300px; margin: auto;"></div>
 
     <!-- Textbox for Manual Input -->
+     <br><br>
     <input type="text" style="width: 250px; height: 45px; font-size: 20px;" id="barcodeInput" placeholder="Enter QR Code" onkeypress="handleEnter(event)" />
     <button style="width: 150px; height: 50px; font-size: 20px;" onclick="checkQRCode()">Submit</button>
     <br><br>
@@ -138,7 +139,7 @@
                 enterPressCount++;
 
                 if (enterPressCount === 1) {
-                    checkQRCode(); // 1st Enter → Submit
+                    
                 } else if (enterPressCount === 2) {
                     resetFields(); // 3rd Enter → Reset
                     enterPressCount = 0; // Reset count // 2nd Enter → Show alert again
