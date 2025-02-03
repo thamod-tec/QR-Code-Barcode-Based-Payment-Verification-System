@@ -151,15 +151,24 @@
         function onScanSuccess(barcode) {
             document.getElementById("barcodeInput").value = barcode;
             checkQRCode();
+            html5QrCode.stop().then(() => {
+                document.getElementById('reader').style.display = 'none';
+            }).catch(err => {
+                console.error("Failed to stop QR code scanner.", err);
+            });
         }
 
         // Initialize the QR scanner
-        let html5QrCode = new Html5Qrcode("reader");
+        let html5QrCode = new Html5QrCode("reader");
+
+        // Directly start the camera without asking for permission
         html5QrCode.start(
             { facingMode: "environment" },
             { fps: 10, qrbox: { width: 250, height: 250 } },
             onScanSuccess
-        );
+        ).catch(err => {
+            console.error("Failed to start QR code scanner.", err);
+        });
 
         // Reset function
         function resetFields() {
