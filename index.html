@@ -6,6 +6,7 @@
     <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore-compat.js"></script>
     <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script> <!-- QR Scanner Library -->
+    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"> </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,6 +66,26 @@
     </div>
 
     <script>
+
+        const scanner = new Html5QrcodeScanner('reader',{
+            qrbox:{
+                width: 250,
+                height: 250,
+            },
+            fps: 10,
+        });
+
+        scanner.render(success, console.error);
+
+        function success(result){
+            document.getElementById('result').value = barcodeInput;
+
+            scanner.clear();
+            document.getElementById('reader').remove();
+        }
+        
+
+
         // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDsjqpuHYB8fyZh-5y5Xllr5mbUjJUMs0E",

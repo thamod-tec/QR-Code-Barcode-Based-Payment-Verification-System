@@ -1,0 +1,15 @@
+{
+  "name": "qr-code-barcode-based-payment-verification-system",
+  "version": "1.0.0",
+  "description": "This project verifies student payments using QR codes or barcodes. It scans or manually inputs codes, checks payment status from Firebase, updates scanned status, and resets after three Enter key presses. Built with Firebase, HTML, JavaScript, and Firestore",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html5-qrcode": "^2.3.8"
+  }
+}
